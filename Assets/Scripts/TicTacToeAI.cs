@@ -16,6 +16,10 @@ public class TicTacToeAI : MonoBehaviour
 {
 
     int _aiLevel;
+    GameManager _gameManager;
+    public TMP_Dropdown chooseLevel;
+
+
 
     TicTacToeState[,] boardState;
 
@@ -54,12 +58,15 @@ public class TicTacToeAI : MonoBehaviour
         {
             onPlayerWin = new WinnerEvent();
         }
+
+        _gameManager = FindObjectOfType<GameManager>();
     }
 
-    public void StartAI(int AILevel)
+    public void StartAI()
     {
-        _aiLevel = AILevel;
+        _aiLevel = chooseLevel.value;
         StartGame();
+
     }
 
     public void RegisterTransform(int myCoordX, int myCoordY, ClickTrigger clickTrigger)
@@ -95,10 +102,15 @@ public class TicTacToeAI : MonoBehaviour
             CheckGameState();
             UpdateTurnDisplay();
 
+
+            _gameManager.OnUpdateUI("X", coordX, coordY);
+
             // Delay AI move instead of calling AiMove() directly here
             StartCoroutine(DelayAiMove());
         }
     }
+
+
 
     IEnumerator DelayAiMove()
     {
@@ -120,6 +132,9 @@ public class TicTacToeAI : MonoBehaviour
             _isPlayerTurn = true;
             CheckGameState();
             UpdateTurnDisplay();
+
+
+            _gameManager.OnUpdateUI("O", coordX, coordY);
         }
     }
 
@@ -130,8 +145,8 @@ public class TicTacToeAI : MonoBehaviour
             Instantiate(
            targetState == TicTacToeState.circle ? _oPrefab : _xPrefab,
            _triggers[coordX, coordY].transform.position,
-           Quaternion.identity
-       );
+           Quaternion.identity);
+
         }
         else
         {
@@ -146,12 +161,12 @@ public class TicTacToeAI : MonoBehaviour
 
         if (_aiLevel == 0)
         {
-            Debug.Log("easy level!!");
+            // Debug.Log("easy level!!");
             EasyLevelAiMove();
         }
         else if (_aiLevel == 1)
         {
-            Debug.Log("Hard level!!");
+            // Debug.Log("Hard level!!");
             HardLevelAiMove();
         }
 

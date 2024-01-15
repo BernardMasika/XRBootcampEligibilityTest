@@ -1,25 +1,28 @@
 using System.Collections;
 using UnityEngine;
 
-public class GamePiece : MonoBehaviour{
+public class GamePiece : MonoBehaviour
+{
 
-	[SerializeField]
-	private float _animTime = 2f;
-	[SerializeField]
-	AnimationCurve _growthCurve;
+    [SerializeField]
+    private float _animTime = 2f;
+    [SerializeField]
+    AnimationCurve _growthCurve;
+    [SerializeField] public string gamePieceType;
 
-	private void OnEnable()
-	{
-		StartCoroutine(SpawnRoutine());
-	}
+    private void OnEnable()
+    {
+        StartCoroutine(SpawnRoutine());
+    }
 
-	IEnumerator SpawnRoutine(){
-		yield return null;
-		for(float t = 0 ; t <= _animTime; t += Time.deltaTime){
-			yield return new WaitForFixedUpdate();
-			transform.localScale = Vector3.one * _growthCurve.Evaluate( t/_animTime);
-		}
-	}
-
+    IEnumerator SpawnRoutine()
+    {
+        yield return null;
+        for (float t = 0; t <= _animTime; t += Time.deltaTime)
+        {
+            yield return new WaitForFixedUpdate();
+            transform.localScale = Vector3.one * _growthCurve.Evaluate(t / _animTime);
+        }
+    }
 
 }
