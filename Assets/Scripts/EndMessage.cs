@@ -11,7 +11,7 @@ public class EndMessage : MonoBehaviour
     {
         // _playerMessage.text = winner == -1 ? "It's Draw" : winner == 1 ? "You Lost" : "You Won!!";
 
-        Debug.Log("Winner value received: " + winner);
+       // Debug.Log("Winner value received: " + winner);
 
         switch (winner)
         {

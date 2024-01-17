@@ -19,6 +19,7 @@ public class TicTacToeAI : MonoBehaviour
     GameManager _gameManager;
     public TMP_Dropdown chooseLevel;
 
+ 
 
 
     TicTacToeState[,] boardState;
@@ -30,6 +31,7 @@ public class TicTacToeAI : MonoBehaviour
     private bool _isPlayerTurn;
 
     [SerializeField] private TMP_Text turnText = null;
+ 
 
     [SerializeField]
     private int _gridSize = 3;
@@ -51,6 +53,8 @@ public class TicTacToeAI : MonoBehaviour
     public WinnerEvent onPlayerWin;
 
     ClickTrigger[,] _triggers;
+    GameTimer _timer;
+    bool gamestarted = false;
 
     private void Awake()
     {
@@ -60,6 +64,29 @@ public class TicTacToeAI : MonoBehaviour
         }
 
         _gameManager = FindObjectOfType<GameManager>();
+
+        _timer = GetComponent<GameTimer>();
+        _timer.timesUp.AddListener(onTimeElapse);
+    }
+
+    private void onTimeElapse()
+    {
+        if (_isPlayerTurn)
+        {
+            EndGame(aiState);
+            _timer.StopTimer();
+        }
+    }
+
+    private void Update()
+    {
+        if (_isPlayerTurn && gamestarted)
+        {
+            _timer.StartTimer();
+        }else if (!_isPlayerTurn || gameEnded)
+        {
+            _timer.StopTimer();
+        }
     }
 
     public void StartAI()
@@ -76,6 +103,7 @@ public class TicTacToeAI : MonoBehaviour
 
     private void StartGame()
     {
+        gamestarted = true;
         _triggers = new ClickTrigger[3, 3];
 
         boardState = new TicTacToeState[_gridSize, _gridSize]; // Initialize the board state
@@ -87,6 +115,8 @@ public class TicTacToeAI : MonoBehaviour
                 boardState[x, y] = TicTacToeState.none; // Set all states to 'none'
             }
         }
+        
+        UpdateTurnDisplay();
 
         onGameStarted.Invoke();
     }
@@ -103,18 +133,20 @@ public class TicTacToeAI : MonoBehaviour
             UpdateTurnDisplay();
 
 
-            _gameManager.OnUpdateUI("X", coordX, coordY);
+         //  _gameManager.OnUpdateGridUI("X", coordX, coordY);
 
             // Delay AI move instead of calling AiMove() directly here
             StartCoroutine(DelayAiMove());
         }
+
+       
     }
 
 
 
     IEnumerator DelayAiMove()
     {
-        yield return new WaitForSeconds(1f); // 1 second delay, adjust as needed
+        yield return new WaitForSeconds(2f); // 1 second delay, adjust as needed
         if (!gameEnded && !_isPlayerTurn)
         {
             AiMove();
@@ -134,8 +166,9 @@ public class TicTacToeAI : MonoBehaviour
             UpdateTurnDisplay();
 
 
-            _gameManager.OnUpdateUI("O", coordX, coordY);
+           // _gameManager.OnUpdateGridUI("O", coordX, coordY);
         }
+        
     }
 
     private void SetVisual(int coordX, int coordY, TicTacToeState targetState)
@@ -174,8 +207,21 @@ public class TicTacToeAI : MonoBehaviour
 
     private void EasyLevelAiMove()
     {
+        float rate = 0.2f;
+        float randomChance = UnityEngine.Random.Range(0, 0.9f);
+
+
+        if (randomChance < rate)
+        {
+            TryToMakeAWinningMove();
+
+            Debug.Log("creating a winning move.." + randomChance);
+        }
+
         // First, check if the AI can block the player's winning move
         if (TryToBlockThePlayerFromWinning()) return;
+
+
 
         // Then, choose a random spot
         SelectRandomSpot();
@@ -188,6 +234,7 @@ public class TicTacToeAI : MonoBehaviour
         TryToMakeAWinningMove,
         TryToBlockThePlayerFromWinning,
         TakeCenterOrCorner,
+
         // TrySettingUpFutureWin
     };
 
@@ -370,7 +417,7 @@ public class TicTacToeAI : MonoBehaviour
             return;
         }
 
-        Debug.Log("No winner or tie yet. Game continues.");
+      //  Debug.Log("No winner or tie yet. Game continues.");
     }
 
     private bool CheckForWin(TicTacToeState state)
@@ -421,7 +468,7 @@ public class TicTacToeAI : MonoBehaviour
     private void EndGame(TicTacToeState winnerState)
     {
         gameEnded = true;
-
+        gamestarted = false;
         int winner;
         if (winnerState == TicTacToeState.none)
         {
@@ -435,8 +482,9 @@ public class TicTacToeAI : MonoBehaviour
         {
             winner = 1; // AI wins
         }
-        Debug.Log($"Game Ended. Winner: {winner}");
+      //  Debug.Log($"Game Ended. Winner: {winner}");
         onPlayerWin.Invoke(winner);
+        _gameManager.OnUpdateRecords(winner);
     }
 
     public void UpdateTurnDisplay()
@@ -445,10 +493,10 @@ public class TicTacToeAI : MonoBehaviour
         {
             turnText.text = "";
         }
-        else
+        else 
         {
 
-            turnText.text = _isPlayerTurn ? "Player's Turn" : "AI's Turn";
+            turnText.text = _isPlayerTurn ? "Your Turn" : "AI Turn";
         }
 
     }
