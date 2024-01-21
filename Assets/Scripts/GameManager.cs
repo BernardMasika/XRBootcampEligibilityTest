@@ -71,6 +71,7 @@ public class GameManager : MonoBehaviour
             case 1:
                 lose++;
                 OnDisplayRecords();
+                OnUpdateSkyboxColor();
                 break;
             default:
                
@@ -85,7 +86,15 @@ public class GameManager : MonoBehaviour
             $"Loses: {lose}\r\n" +
             $"Draws: {draw}";
 
-        Debug.Log("wins: " +" " + wins + "lose: " + " " + lose + "draw: " + " " + draw);
+      //  Debug.Log("wins: " +" " + wins + "lose: " + " " + lose + "draw: " + " " + draw);
+    }
+
+    void OnUpdateSkyboxColor()
+    {
+        RenderSettings.skybox.SetColor("_Tint", new Color(255f, 0f, 0f)); 
+
+        DynamicGI.UpdateEnvironment();
+
     }
 
     public void OnQuitGame()

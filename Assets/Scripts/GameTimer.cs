@@ -6,7 +6,7 @@ public class GameTimer : MonoBehaviour
 {
     [SerializeField] TMP_Text timerDisplay;
     [SerializeField] float timeLapse = 10f;
-    [SerializeField] bool startOnAwake = true;
+    
 
     public UnityEvent timesUp;
 
@@ -18,7 +18,7 @@ public class GameTimer : MonoBehaviour
         timer = timeLapse;
 
 
-       // if (startOnAwake) StartTimer();
+     
     }
 
     public void StartTimer()

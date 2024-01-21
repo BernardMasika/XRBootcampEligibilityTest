@@ -51,5 +51,12 @@ public class ClickTrigger : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (canClick)
+        {
+            _ai.PlayerSelects(_myCoordX, _myCoordY);
+        }
+    }
 
 }
