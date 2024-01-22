@@ -18,8 +18,9 @@ public class TicTacToeAI : MonoBehaviour
     int _aiLevel;
     GameManager _gameManager;
     public TMP_Dropdown chooseLevel;
+    [SerializeField] AudioSource _gameAudio;
+    [SerializeField] AudioSource _gameWinAudio;
 
- 
 
 
     TicTacToeState[,] boardState;
@@ -31,7 +32,7 @@ public class TicTacToeAI : MonoBehaviour
     private bool _isPlayerTurn;
 
     [SerializeField] private TMP_Text turnText = null;
- 
+
 
     [SerializeField]
     private int _gridSize = 3;
@@ -83,7 +84,8 @@ public class TicTacToeAI : MonoBehaviour
         if (_isPlayerTurn && gamestarted)
         {
             _timer.StartTimer();
-        }else if (!_isPlayerTurn || gameEnded)
+        }
+        else if (!_isPlayerTurn || gameEnded)
         {
             _timer.StopTimer();
         }
@@ -103,6 +105,15 @@ public class TicTacToeAI : MonoBehaviour
 
     private void StartGame()
     {
+        if (_gameAudio != null)
+        {
+            _gameAudio.Stop();
+        }
+        else
+        {
+            Debug.LogError("audio source is missing, probably you forgot to drag man!!");
+        }
+
         gamestarted = true;
         _triggers = new ClickTrigger[3, 3];
 
@@ -115,7 +126,7 @@ public class TicTacToeAI : MonoBehaviour
                 boardState[x, y] = TicTacToeState.none; // Set all states to 'none'
             }
         }
-        
+
         UpdateTurnDisplay();
 
         onGameStarted.Invoke();
@@ -126,20 +137,27 @@ public class TicTacToeAI : MonoBehaviour
 
         if (!gameEnded && _isPlayerTurn && boardState[coordX, coordY] == TicTacToeState.none)
         {
+#if UNITY_ANDROID
+        // Code specific to Android build
+#elif UNITY_STANDALONE
+            // Code specific to PC build
+
             SetVisual(coordX, coordY, playerState);
+#endif
+
             boardState[coordX, coordY] = playerState;
             _isPlayerTurn = false;
             CheckGameState();
             UpdateTurnDisplay();
 
 
-         //  _gameManager.OnUpdateGridUI("X", coordX, coordY);
+            //  _gameManager.OnUpdateGridUI("X", coordX, coordY);
 
             // Delay AI move instead of calling AiMove() directly here
             StartCoroutine(DelayAiMove());
         }
 
-       
+
     }
 
 
@@ -166,9 +184,9 @@ public class TicTacToeAI : MonoBehaviour
             UpdateTurnDisplay();
 
 
-           // _gameManager.OnUpdateGridUI("O", coordX, coordY);
+            // _gameManager.OnUpdateGridUI("O", coordX, coordY);
         }
-        
+
     }
 
     private void SetVisual(int coordX, int coordY, TicTacToeState targetState)
@@ -417,7 +435,7 @@ public class TicTacToeAI : MonoBehaviour
             return;
         }
 
-      //  Debug.Log("No winner or tie yet. Game continues.");
+        //  Debug.Log("No winner or tie yet. Game continues.");
     }
 
     private bool CheckForWin(TicTacToeState state)
@@ -467,6 +485,7 @@ public class TicTacToeAI : MonoBehaviour
 
     private void EndGame(TicTacToeState winnerState)
     {
+        _gameWinAudio.Play();
         gameEnded = true;
         gamestarted = false;
         int winner;
@@ -482,7 +501,7 @@ public class TicTacToeAI : MonoBehaviour
         {
             winner = 1; // AI wins
         }
-      //  Debug.Log($"Game Ended. Winner: {winner}");
+        //  Debug.Log($"Game Ended. Winner: {winner}");
         onPlayerWin.Invoke(winner);
         _gameManager.OnUpdateRecords(winner);
     }
@@ -493,7 +512,7 @@ public class TicTacToeAI : MonoBehaviour
         {
             turnText.text = "";
         }
-        else 
+        else
         {
 
             turnText.text = _isPlayerTurn ? "Your Turn" : "AI Turn";

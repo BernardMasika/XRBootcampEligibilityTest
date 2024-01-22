@@ -12,6 +12,7 @@ public class ClickTrigger : MonoBehaviour
     [SerializeField]
     private bool canClick;
 
+    AudioSource _audioSource;
 
     private void Awake()
     {
@@ -23,6 +24,7 @@ public class ClickTrigger : MonoBehaviour
 
     private void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
 
 
         _ai.onGameStarted.AddListener(AddReference);
@@ -41,6 +43,22 @@ public class ClickTrigger : MonoBehaviour
         canClick = true;
     }
 
+
+
+#if UNITY_ANDROID
+        // Code specific to Android build, you know it right we use VR controller yeah? 
+
+          private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.GetComponent<Grabbable>() != null && canClick)
+        {
+            _ai.PlayerSelects(_myCoordX, _myCoordY);
+            Debug.Log("sent my coordXY");
+        }
+    }
+#elif UNITY_STANDALONE
+    // Code specific to PC build since it' all about mouse and keyboard right :)
+
     private void OnMouseDown()
     {
         if (canClick)
@@ -53,10 +71,10 @@ public class ClickTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (canClick)
-        {
-            _ai.PlayerSelects(_myCoordX, _myCoordY);
-        }
+        _audioSource.Play();
     }
+
+#endif
+
 
 }

@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d095236d72305f645a71d717903e9d8f, type: 3}
+  m_Name: Mixamo RH Cross Grabbed
+  m_EditorClassIdentifier: 
+  PoseName: Default
+  Joints:
+    WristJoint:
+      TransformName: 
+      LocalPosition: {x: 0, y: 0, z: 0}
+      LocalRotation: {x: 0, y: 0, z: 0, w: 0}
+    ThumbJoints:
+    - TransformName: mixamorig4:RightHandThumb1
+      LocalPosition: {x: -0.029545596, y: 0.035579942, z: 0.013650827}
+      LocalRotation: {x: 0.3049337, y: 0.031128153, z: 0.2906168, w: 0.9064151}
+    - TransformName: mixamorig4:RightHandThumb2
+      LocalPosition: {x: -0.006267976, y: 0.03804591, z: -0.000006882474}
+      LocalRotation: {x: 0.09020777, y: -0.025188593, z: -0.007820786, w: 0.9955737}
+    - TransformName: mixamorig4:RightHandThumb3
+      LocalPosition: {x: -0.0006980309, y: 0.03401398, z: -0.000026548747}
+      LocalRotation: {x: 0.0007185561, y: -0.0065755374, z: -0.08764457, w: 0.9961299}
+    - TransformName: mixamorig4:RightHandThumb4
+      LocalPosition: {x: 0.006992316, y: 0.025615992, z: 3.0678507e-10}
+      LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    IndexJoints:
+    - TransformName: mixamorig4:RightHandIndex1
+      LocalPosition: {x: -0.0313, y: 0.1111, z: -0.0003}
+      LocalRotation: {x: 0.008358548, y: 0.00052566436, z: 0.04893569, w: 0.99876684}
+    - TransformName: mixamorig4:RightHandIndex2
+      LocalPosition: {x: 0.002200882, y: 0.032004148, z: -0.00000044470653}
+      LocalRotation: {x: 0.22221604, y: -0.000863564, z: -0.0036972866, w: 0.9749901}
+    - TransformName: mixamorig4:RightHandIndex3
+      LocalPosition: {x: -0.00012484274, y: 0.029816747, z: -0.00003461726}
+      LocalRotation: {x: 0.11991279, y: 0.00034253005, z: 0.0022237485, w: 0.99278194}
+    - TransformName: mixamorig4:RightHandIndex4
+      LocalPosition: {x: 0.000010441123, y: 0.024693862, z: -0.000002731569}
+      LocalRotation: {x: 0.04108694, y: -0.0000000023283053, z: -0.000000036445254,
+        w: 0.9991556}
+    MiddleJoints:
+    - TransformName: mixamorig4:RightHandMiddle1
+      LocalPosition: {x: -0.010395237, y: 0.10963416, z: -0.0035501367}
+      LocalRotation: {x: 0.054839905, y: 0.0020228575, z: 0.0482532, w: 0.9973265}
+    - TransformName: mixamorig4:RightHandMiddle2
+      LocalPosition: {x: 0.00006180769, y: 0.03525707, z: -0.000007169321}
+      LocalRotation: {x: 0.21944836, y: -0.00067702634, z: -0.0027987752, w: 0.97561985}
+    - TransformName: mixamorig4:RightHandMiddle3
+      LocalPosition: {x: -0.00012432956, y: 0.033050366, z: -0.000011250377}
+      LocalRotation: {x: 0.11126595, y: 0.00034094206, z: 0.0025079455, w: 0.99378747}
+    - TransformName: mixamorig4:RightHandMiddle4
+      LocalPosition: {x: 0.000042518477, y: 0.029441217, z: -1.3485163e-10}
+      LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    RingJoints:
+    - TransformName: mixamorig4:RightHandRing1
+      LocalPosition: {x: 0.008501033, y: 0.108510055, z: -0.0017997564}
+      LocalRotation: {x: 0.079318285, y: 0.0010013316, z: 0.04754186, w: 0.99571455}
+    - TransformName: mixamorig4:RightHandRing2
+      LocalPosition: {x: 0.00002139667, y: 0.029114543, z: -0.00003874814}
+      LocalRotation: {x: 0.30217385, y: -0.00067149714, z: -0.0018259533, w: 0.9532509}
+    - TransformName: mixamorig4:RightHandRing3
+      LocalPosition: {x: -0.000101865466, y: 0.028502427, z: -0.00002448447}
+      LocalRotation: {x: 0.12406722, y: 0.00043737426, z: 0.003585451, w: 0.99226725}
+    - TransformName: mixamorig4:RightHandRing4
+      LocalPosition: {x: 0.0000897067, y: 0.024218954, z: -4.602327e-12}
+      LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    PinkyJoints:
+    - TransformName: mixamorig4:RightHandPinky1
+      LocalPosition: {x: 0.025903823, y: 0.10212684, z: -0.0007026759}
+      LocalRotation: {x: 0.122145034, y: -0.08020719, z: 0.008563072, w: 0.9892291}
+    - TransformName: mixamorig4:RightHandPinky2
+      LocalPosition: {x: 0.0000520763, y: 0.026647516, z: -0.00011494383}
+      LocalRotation: {x: 0.19180217, y: -0.05797748, z: -0.013737814, w: 0.9796233}
+    - TransformName: mixamorig4:RightHandPinky3
+      LocalPosition: {x: -0.00008292656, y: 0.021611616, z: -0.00003726501}
+      LocalRotation: {x: 0.1951815, y: 0.00067815545, z: 0.0031640308, w: 0.9807618}
+    - TransformName: mixamorig4:RightHandPinky4
+      LocalPosition: {x: 0.00004693529, y: 0.017551105, z: -6.6948475e-11}
+      LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    OtherJoints: []
