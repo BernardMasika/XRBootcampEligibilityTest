@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using BNG;
+using UnityEngine;
 
 public class ClickTrigger : MonoBehaviour
 {
@@ -50,10 +51,10 @@ public class ClickTrigger : MonoBehaviour
 
           private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<Grabbable>() != null && canClick)
+        if (other.gameObject.GetComponent<Grabbable>() && canClick)
         {
             _ai.PlayerSelects(_myCoordX, _myCoordY);
-            Debug.Log("sent my coordXY");
+           // Debug.Log("sent my coordXY");
         }
     }
 #elif UNITY_STANDALONE

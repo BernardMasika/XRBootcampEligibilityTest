@@ -8,6 +8,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 188661070670163064, guid: b2defb85b986ab243a8c5252fe34a93a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 188661071091555261, guid: b2defb85b986ab243a8c5252fe34a93a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 188661071574005254, guid: b2defb85b986ab243a8c5252fe34a93a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 188661071774436995, guid: b2defb85b986ab243a8c5252fe34a93a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 188661072056108858, guid: b2defb85b986ab243a8c5252fe34a93a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 188661072258865511, guid: b2defb85b986ab243a8c5252fe34a93a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 188661072513842819, guid: b2defb85b986ab243a8c5252fe34a93a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 188661072721589065, guid: b2defb85b986ab243a8c5252fe34a93a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 3696856878597835992, guid: b2defb85b986ab243a8c5252fe34a93a,
         type: 3}
       propertyPath: m_RootOrder
@@ -68,6 +108,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PistolAttachments Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3696856878728514101, guid: b2defb85b986ab243a8c5252fe34a93a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 3696856879243870240, guid: b2defb85b986ab243a8c5252fe34a93a,
         type: 3}
       propertyPath: m_IsActive
@@ -83,6 +128,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9eaba6addf8855b4682d6da44b1d7ed7, type: 2}
+    - target: {fileID: 3696856879362931868, guid: b2defb85b986ab243a8c5252fe34a93a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 3696856879699812162, guid: b2defb85b986ab243a8c5252fe34a93a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 3696856880095211584, guid: b2defb85b986ab243a8c5252fe34a93a,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -93,6 +148,21 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.2722
       objectReference: {fileID: 0}
+    - target: {fileID: 5224223666684008620, guid: b2defb85b986ab243a8c5252fe34a93a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 6149938374106782241, guid: b2defb85b986ab243a8c5252fe34a93a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 6149938374313714910, guid: b2defb85b986ab243a8c5252fe34a93a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 6896351667102617552, guid: b2defb85b986ab243a8c5252fe34a93a,
         type: 3}
       propertyPath: GunShotSound
