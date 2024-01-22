@@ -6,8 +6,8 @@ public class GameTimer : MonoBehaviour
 {
     [SerializeField] TMP_Text timerDisplay;
     [SerializeField] float timeLapse = 10f;
-    [SerializeField] AudioSource _timerSound;
-    
+
+
 
     public UnityEvent timesUp;
 
@@ -17,27 +17,24 @@ public class GameTimer : MonoBehaviour
     void Start()
     {
         timer = timeLapse;
-
-        _timerSound = GetComponent<AudioSource>();
-     
     }
 
     public void StartTimer()
     {
-        _timerSound.Play();
+
         isOnTimer = true;
     }
 
     public void StopTimer()
     {
-        _timerSound?.Stop();
+
         isOnTimer = false;
         timer = timeLapse;
     }
 
     public void PauseTimer()
     {
-        _timerSound.Stop();
+
         isOnTimer = false;
     }
 
@@ -54,7 +51,8 @@ public class GameTimer : MonoBehaviour
                 timesUp.Invoke();
                 timer = timeLapse;
             }
-        } else
+        }
+        else
         {
             timerDisplay.text = null;
         }

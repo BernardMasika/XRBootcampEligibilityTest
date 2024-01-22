@@ -23,6 +23,7 @@ public class TicTacToeAI : MonoBehaviour
 
 
 
+
     TicTacToeState[,] boardState;
 
     private bool gameEnded = false;
@@ -138,7 +139,7 @@ public class TicTacToeAI : MonoBehaviour
         if (!gameEnded && _isPlayerTurn && boardState[coordX, coordY] == TicTacToeState.none)
         {
 #if UNITY_ANDROID
-        // Code specific to Android build
+            // Code specific to Android build
 #elif UNITY_STANDALONE
             // Code specific to PC build
 
