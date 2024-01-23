@@ -47,14 +47,15 @@ public class ClickTrigger : MonoBehaviour
 
 
 #if UNITY_ANDROID
-        // Code specific to Android build, you know it right we use VR controller yeah? 
+    // Code specific to Android build, you know it right we use VR controller yeah? 
 
-          private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<Grabbable>() && canClick)
         {
             _ai.PlayerSelects(_myCoordX, _myCoordY);
-           // Debug.Log("sent my coordXY");
+            // Debug.Log("sent my coordXY");
+            _audioSource.Play();
         }
     }
 #elif UNITY_STANDALONE
