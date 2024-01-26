@@ -140,6 +140,8 @@ public class TicTacToeAI : MonoBehaviour
         {
 #if UNITY_ANDROID
             // Code specific to Android build
+
+            // here we don't put SetVisual method, because, the player interacts directly
 #elif UNITY_STANDALONE
             // Code specific to PC build
 
@@ -154,7 +156,7 @@ public class TicTacToeAI : MonoBehaviour
 
             //  _gameManager.OnUpdateGridUI("X", coordX, coordY);
 
-            // Delay AI move instead of calling AiMove() directly here
+            // Delay AI move instead of calling AiMove() directly here, to make it feel like a player thinking
             StartCoroutine(DelayAiMove());
         }
 
@@ -165,7 +167,7 @@ public class TicTacToeAI : MonoBehaviour
 
     IEnumerator DelayAiMove()
     {
-        yield return new WaitForSeconds(2f); // 1 second delay, adjust as needed
+        yield return new WaitForSeconds(2f); // 2 second delay, adjust as needed
         if (!gameEnded && !_isPlayerTurn)
         {
             AiMove();
