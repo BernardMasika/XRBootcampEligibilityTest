@@ -17,7 +17,7 @@ Explore the Tic Tac Toe game in a virtual reality setting. Check out the VR demo
 ## Getting Started
 
 ### Cloning the Project
-If you're interested in the project's code, feel free to clone it. For specific game platforms, visit the 'Scene' folder. Please note, additional packages are required for full functionality:
+If you're interested in the project's code, feel free to clone it. For specific game platforms, visit the 'Scene' folder. Please note, additional packages are required for full functionality of the VR version:
 
 - VR Interaction Framework
 - Final IK
